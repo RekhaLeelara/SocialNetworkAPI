@@ -8,7 +8,7 @@ router
 .get(getAllthoughts)
 .post(createThoughts);
 
-// /api/pizzas/:id
+// /api/Thoughts/:id
 router
   .route('/:id')
   .get(getThoughtsById)

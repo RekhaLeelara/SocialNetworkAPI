@@ -74,6 +74,7 @@ const userController = {
       .catch(err => res.status(400).json(err));
   },
 
+  //Create friend under a user
   Createnewfriend({ params }, res) {
     User.findOneAndUpdate({ _id: params.userId }, { $addToSet: { friends: params.friendId } }, { runValidators: true })
       .then(dbUserData => {
@@ -86,10 +87,11 @@ const userController = {
       .catch(err => res.status(400).json(err));
   },
 
+  //Delete a friend from the user object
   deletenewfriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $pull: { friendId: params.friendId } },
+      { $pull: { friends: params.friendId } },
       { runValidators: true, new: true }
     )
       .then(dbThoughtData => res.json(dbThoughtData))
@@ -97,4 +99,5 @@ const userController = {
   }
 };
 
+//exporting user controller
 module.exports = userController;

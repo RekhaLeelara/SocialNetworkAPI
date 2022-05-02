@@ -8,7 +8,7 @@ router
 .get(getAllUsers)
 .post(createUsers);
 
-// /api/pizzas/:id
+// /api/Users/:id
 router
   .route('/:id')
   .get(getUsersById)

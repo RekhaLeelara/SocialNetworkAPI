@@ -3,7 +3,8 @@
 This application allows the user to create the Social networking data through backend (Postman tool). The social networking data includes creating users, associate user to the friends, posting thoughts and reactions
 
 ## video recording
-https://drive.google.com/drive/folders/1YK1wm8a_94JniBnXKRlSObI2GlCeW8tw
+Part1-https://drive.google.com/file/d/1kyFi_ES0aZj0IKv19CCRKXCpKRDuD6vK/view?usp=sharing
+Part2-https://drive.google.com/file/d/1hJ7qwcerFPH62_qx8uMLFUdVTsOlhpEL/view?usp=sharing
 
 ## gitHub URL
 

@@ -1,7 +1,7 @@
 const {Thought, User, Reaction} = require('../models');
 
 const thoughtController = {
-  // get all pizzas
+  // get all users
   getAllthoughts(req, res) {
     Thought.find({})
       .populate({
@@ -21,7 +21,7 @@ const thoughtController = {
       .then(dbThoughtData => res.json(dbThoughtData))
       .catch(err => res.json(err));
   },
-  // get one pizza by id
+  // get one user by id
   getThoughtsById({ params }, res) {
     Thought.findOne({ _id: params.id })
       .populate({
@@ -35,7 +35,7 @@ const thoughtController = {
         res.sendStatus(400);
       });
   },
-  // update pizza by id
+  // update user by id
   updateThought({ params, body }, res) {
     Thought.findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then(dbThoughtData => {
@@ -48,13 +48,14 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // delete pizza
+  // delete user
   deleteThought({ params }, res) {
     Thought.findOneAndDelete({ _id: params.id })
       .then(dbThoughtData => res.json(dbThoughtData))
       .catch(err => res.json(err));
   },
 
+  //Create reaction based on the Thoughts
   Createreactions({ params, body }, res) {
     Thought.findOneAndUpdate(
         { _id: params.thoughtId },
@@ -63,7 +64,7 @@ const thoughtController = {
     )
         .then(dbThoughtsData => {
             if (!dbThoughtsData) {
-                res.status(404).json({ message: 'No pizza found with this id!' });
+                res.status(404).json({ message: 'No user found with this id!' });
                 return;
             }
             res.json(dbThoughtsData);
@@ -71,6 +72,7 @@ const thoughtController = {
         .catch(err => res.json(err));
 },
 
+//Delete reactions under a specific thought
 deletereactions({ params }, res) {
   Thought.findOneAndUpdate(
     { _id: params.thoughtId },
@@ -82,4 +84,6 @@ deletereactions({ params }, res) {
 },
 
 };
+
+//exporting thought controller
 module.exports = thoughtController;

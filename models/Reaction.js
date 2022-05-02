@@ -1,6 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
+//Schema for the reaction
 const ReactionSchema = new Schema(
     {
         reactionId: {
@@ -29,5 +30,5 @@ const ReactionSchema = new Schema(
     }
 );
 
-// export the Pizza model
+// export the Reaction model
 module.exports = ReactionSchema;
